@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Agnodice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafa;
+            color: #333;
+        }
+        /* Fade animation for page transitions */
+        .fade-in {
+            animation: fadeIn 0.4s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        /* Hide dropdown by default, show on hover (for desktop) */
+        .dropdown-menu {
+            display: none;
+        }
+        .dropdown-container:hover .dropdown-menu {
+            display: block;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo / Brand -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer" onclick="navigate('home')">
+                    <h1 class="text-2xl font-semibold tracking-tight text-gray-900">Project Agnodice</h1>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-black transition-colors duration-200 font-medium text-sm">Home</a>
+                    
+                    <!-- Case Studies Dropdown -->
+                    <div class="relative dropdown-container py-4">
+                        <a href="#case-studies-hub" class="nav-link text-gray-600 hover:text-black transition-colors duration-200 font-medium text-sm flex items-center">
+                            Case Studies
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <!-- Dropdown items -->
+                        <div class="dropdown-menu absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                            <div class="py-1" role="menu" aria-orientation="vertical">
+                                <a href="#pms" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Premenstrual Syndrome</a>
+                                <a href="#menopause" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Menopause</a>
+                                <a href="#endometriosis" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Endometriosis</a>
+                                <a href="#heart-disease" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Heart Disease</a>
+                                <a href="#migraines" class="nav-link block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Migraines</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#funding-gap" class="nav-link text-gray-600 hover:text-black transition-colors duration-200 font-medium text-sm">Funding Gap</a>
+                    <a href="#methodology" class="nav-link text-gray-600 hover:text-black transition-colors duration-200 font-medium text-sm">Methodology</a>
+                    <a href="#get-involved" class="nav-link px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition-colors duration-200 font-medium text-sm">Get Involved</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+        
+        <!-- Home Page -->
+        <section id="home" class="page-section fade-in">
+            <div class="max-w-3xl">
+                <h2 class="text-4xl font-light text-gray-900 mb-6">Advancing Women's Health Research</h2>
+                <p class="text-lg text-gray-600 leading-relaxed mb-8">
+                    Project Agnodice is dedicated to illuminating the systemic discrepancies in medical research and healthcare funding. We aim to bridge the gap in understanding conditions that predominantly or differently affect women.
+                </p>
+                <button onclick="navigate('funding-gap')" class="px-6 py-3 border border-gray-300 rounded-md hover:border-gray-900 transition-colors text-sm font-medium">
+                    Explore the Funding Gap
+                </button>
+            </div>
+        </section>
+
+        <!-- Case Studies Hub (If they click the main link instead of a dropdown) -->
+        <section id="case-studies-hub" class="page-section hidden fade-in">
+            <h2 class="text-3xl font-light text-gray-900 mb-6">Case Studies</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl">Select a condition below to explore detailed analyses of historical research neglect and the current landscape of care.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Case study cards -->
+                <div class="p-6 border border-gray-200 rounded-lg hover:shadow-sm cursor-pointer transition-shadow" onclick="navigate('pms')">
+                    <h3 class="font-medium text-lg mb-2">Premenstrual Syndrome</h3>
+                    <p class="text-sm text-gray-500">Understanding the research deficit in cyclic hormonal impacts.</p>
+                </div>
+                <div class="p-6 border border-gray-200 rounded-lg hover:shadow-sm cursor-pointer transition-shadow" onclick="navigate('menopause')">
+                    <h3 class="font-medium text-lg mb-2">Menopause</h3>
+                    <p class="text-sm text-gray-500">The transition phase and long-term health implications.</p>
+                </div>
+                <div class="p-6 border border-gray-200 rounded-lg hover:shadow-sm cursor-pointer transition-shadow" onclick="navigate('endometriosis')">
+                    <h3 class="font-medium text-lg mb-2">Endometriosis</h3>
+                    <p class="text-sm text-gray-500">Diagnostic delays and systemic barriers to effective treatment.</p>
+                </div>
+                <div class="p-6 border border-gray-200 rounded-lg hover:shadow-sm cursor-pointer transition-shadow" onclick="navigate('heart-disease')">
+                    <h3 class="font-medium text-lg mb-2">Heart Disease</h3>
+                    <p class="text-sm text-gray-500">Differing symptomatology and cardiovascular outcomes in women.</p>
+                </div>
+                <div class="p-6 border border-gray-200 rounded-lg hover:shadow-sm cursor-pointer transition-shadow" onclick="navigate('migraines')">
+                    <h3 class="font-medium text-lg mb-2">Migraines</h3>
+                    <p class="text-sm text-gray-500">Neurological impacts and the gender gap in prevalence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study: PMS -->
+        <section id="pms" class="page-section hidden fade-in">
+            <h2 class="text-3xl font-light text-gray-900 mb-4">Premenstrual Syndrome (PMS) & PMDD</h2>
+            <div class="prose max-w-3xl text-gray-600">
+                <p class="mb-4">Despite affecting a vast majority of menstruating individuals, PMS and its severe counterpart, PMDD, have historically been dismissed in clinical research. This section outlines the history of this dismissal and current clinical findings.</p>
+                <div class="bg-gray-50 p-6 rounded-md border border-gray-100">
+                    <h4 class="font-medium text-gray-900 mb-2">Key Findings:</h4>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Historical categorization as a psychosomatic condition.</li>
+                        <li>Current funding disparities compared to non-sex-specific conditions.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Study: Menopause -->
+        <section id="menopause" class="page-section hidden fade-in">
+            <h2 class="text-3xl font-light text-gray-900 mb-4">Menopause</h2>
+            <div class="prose max-w-3xl text-gray-600">
+                <p class="mb-4">Menopause represents a significant biological transition, yet standardized education for medical professionals remains lacking. We explore the implications of the Women's Health Initiative and the ongoing research gaps in HRT and alternative therapies.</p>
+                <p>Placeholder content for the Menopause case study. Customize this section with your specific research and data.</p>
+            </div>
+        </section>
+
+        <!-- Case Study: Endometriosis -->
+        <section id="endometriosis" class="page-section hidden fade-in">
+            <h2 class="text-3xl font-light text-gray-900 mb-4">Endometriosis</h2>
+            <div class="prose max-w-3xl text-gray-600">
+                <p class="mb-4">With an average diagnostic delay of 7-10 years, endometriosis exemplifies the systemic failure to adequately investigate chronic pelvic pain in women.</p>
+                <p>Placeholder content for the Endometriosis case study. Add charts, citations, and specific methodologies here.</p>
+            </div>
+        </section>
+
+        <!-- Case Study: Heart Disease -->
+        <section id="heart-disease" class="page-section hidden fade-in">
+            <h2 class="text-3xl font-light text-gray-900 mb-4">Heart Disease in Women</h2>
+            <div class="prose max-w-3xl text-gray-600">
+                <p class="mb-4">Cardiovascular disease is the leading cause of death in women, but symptoms often present differently than the "classic" male model, leading to misdiagnosis and delayed treatment.</p>
+                <p>Placeholder content for the Heart Disease case study.</p>
+            </div>
+        </section>
+
+        <!-- Case Study: Migraines -->
+        <section id="migraines" class="page-section hidden fade-in">
+            <h2 class="text-3xl font-light text-gray-900 mb-4">Migraines</h2>
+            <div class="prose max-w-3xl text-gray-600">
+                <p class="mb-4">Migraines affect women at three times the rate of men. This case study examines the intersection of neurology, endocrinology, and chronic pain management.</p>
+                <p>Placeholder content for the Migraines case study.</p>
+            </div>
+        </section>
+
+        <!-- Funding Gap Page -->
+        <section id="funding-gap" class="page-section hidden fade-in">
+            <h2 class="text-3xl font-light text-gray-900 mb-4">The Funding Gap</h2>
+            <div class="prose max-w-3xl text-gray-600">
+                <p class="mb-6">An exploration of NIH and global health funding allocations, demonstrating the disproportionate lack of investment in conditions that solely, disproportionately, or differently affect women.</p>
+                <!-- Minimal visualization placeholder -->
+                <div class="w-full h-64 bg-gray-100 border border-gray-200 rounded flex items-center justify-center mb-6">
+                    <span class="text-gray-400">[ Data Visualization Placeholder ]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Methodology Page -->
+        <section id="methodology" class="page-section hidden fade-in">
+            <h2 class="text-3xl font-light text-gray-900 mb-4">Methodology</h2>
+            <div class="prose max-w-3xl text-gray-600">
+                <p class="mb-4">Project Agnodice relies on rigorous data collection and peer-reviewed analysis. Our approach includes:</p>
+                <ol class="list-decimal pl-5 space-y-2 mb-6">
+                    <li>Comprehensive literature reviews of medical journals from 1990 to present.</li>
+                    <li>Analysis of public funding databases.</li>
+                    <li>Interviews with leading researchers and clinicians in women's health.</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Get Involved Page -->
+        <section id="get-involved" class="page-section hidden fade-in">
+            <h2 class="text-3xl font-light text-gray-900 mb-4">Get Involved</h2>
+            <div class="max-w-xl">
+                <p class="text-gray-600 mb-8">Join our initiative to demand equitable healthcare research. Subscribe to our newsletter or reach out for collaboration.</p>
+                <form class="space-y-4" onsubmit="event.preventDefault(); alert('This is a placeholder form.');">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Name</label>
+                        <input type="text" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-black focus:border-black outline-none" placeholder="Jane Doe">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+                        <input type="email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-black focus:border-black outline-none" placeholder="jane@example.com">
+                    </div>
+                    <button type="submit" class="w-full px-4 py-2 bg-black text-white rounded-md hover:bg-gray-800 transition-colors font-medium">Submit</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 mt-auto">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex justify-between items-center text-sm text-gray-500">
+            <p>&copy; 2026 Project Agnodice. All rights reserved.</p>
+            <p>Advocating for Equity in Research.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Function to handle switching "pages"
+        function navigate(pageId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+                section.classList.remove('fade-in'); // Reset animation
+            });
+
+            // Show target section
+            const target = document.getElementById(pageId);
+            if (target) {
+                target.classList.remove('hidden');
+                // Trigger reflow to restart animation
+                void target.offsetWidth; 
+                target.classList.add('fade-in');
+            }
+
+            // Update URL hash without jumping (aesthetic touch)
+            history.pushState(null, null, '#' + pageId);
+            
+            // Scroll to top smoothly
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Setup event listeners for navigation links
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('a.nav-link');
+            
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        navigate(targetId);
+                    }
+                });
+            });
+
+            // Check URL hash on load to open the correct page
+            const initialHash = window.location.hash.substring(1);
+            if (initialHash && document.getElementById(initialHash)) {
+                navigate(initialHash);
+            } else {
+                // Default to home page
+                navigate('home');
+            }
+        });
+
+        // Handle back/forward browser buttons
+        window.addEventListener('popstate', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash && document.getElementById(hash)) {
+                navigate(hash);
+            } else {
+                navigate('home');
+            }
+        });
+    </script>
+</body>
+</html>
